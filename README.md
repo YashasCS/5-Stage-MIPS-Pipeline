@@ -9,6 +9,7 @@ For R-type instructions:
 
 <img width="586" height="502" alt="image" src="https://github.com/user-attachments/assets/ca768957-b096-41d5-be22-19f13acd092f" />
 
+<br><br>
 For Immediate Instructions:
 
 <img width="586" height="502" alt="image" src="https://github.com/user-attachments/assets/78d2f96c-7420-4e5c-9662-9e355b6ed272" />
