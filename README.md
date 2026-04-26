@@ -26,25 +26,32 @@ State Machine & Flow chart of Hazard Detection Unit without jal and jr:
 
 <img width="617" height="200" alt="image" src="https://github.com/user-attachments/assets/fb1fb2ff-0348-40f8-a984-070ac59889bf" />
 <br><br>
-This is called static branch prediction, in particular, it is the ‘branch always not taken’ prediction. To accommodate this improvement in our existing design, we need to
-make the following changes:
-(i) When a branch is encountered, do not add a bubble in the pipeline.
-(ii) Keep IFwrite and PCwrite signals HIGH to ensure that instruction at PC+4 address is fetched.
-(iii) After resolving the branch, if the branch is not taken, then no operation needs to be performed.
-(iv) However, if the branch is taken, the pipeline must be flushed and the correct instruction at the branch target address must be fetched at the start of the next cycle and resume normal execution.
+This is called static branch prediction, in particular, it is the ‘branch always not taken’ prediction. To accommodate this improvement in our existing design, we need to make the following changes:
+
+* When a branch is encountered, do not add a bubble in the pipeline.
+
+* Keep IFwrite and PCwrite signals HIGH to ensure that instruction at PC+4 address is fetched.
+
+* After resolving the branch, if the branch is not taken, then no operation needs to be performed.
+
+* However, if the branch is taken, the pipeline must be flushed and the correct instruction at the branch target address must be fetched at the start of the next cycle and resume normal execution.
+
 
 ### Timing Report
 
-Timing Report
-
 Slack: inf
+
 Source: MEM_WB_MemToReg_reg_rep/C
 (rising edge-triggered cell FDCE)
+
 Destination: program_counter_reg[23]_C/D
+
 Path Group: (none)
 
 Path Type: Max at Slow Process Corner
+
 Data Path Delay: 20.043ns (logic 1.957ns (9.764%) route 18.086ns (90.236%))
+
 Logic Levels: 11 (FDCE=1 LUT3=2 LUT4=1 LUT5=3 LUT6=4)
 
 According to the design timing report, the clock period is Tclock = 20.043 ns, where the worst slack is minimum. The frequency is calculated to be fclock = 49.892 MHz.
